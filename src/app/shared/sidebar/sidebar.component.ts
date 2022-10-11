@@ -10,7 +10,9 @@ export class SidebarComponent {
   constructor(private gifService: GifService) {
   }
 
-  // Se obtiene el historial del servicio
+  /**
+   * Get del historial desde el servicio
+   */
   get historial() {
     return this.gifService.historial;
   }
