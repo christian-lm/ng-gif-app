@@ -15,4 +15,14 @@ export class SidebarComponent {
     return this.gifService.historial;
   }
 
+  /**
+   * Metodo encargado de buscar los GIF desde el sidebar
+   * @param busqueda query
+   */
+  buscar(busqueda: string) {
+
+    // Se llama al servicio de busqueda
+    this.gifService.buscarGIFs(busqueda);
+
+  }
 }
