@@ -22,6 +22,11 @@ export class BusquedaComponent {
     // Obtengo el valor
     const value = this.txtBuscar.nativeElement.value;
 
+    // Se controla si viene un vacio
+    if (value.trim().length === 0) {
+      return;
+    }
+
     // Se llama al servicio de busqueda
     this.gifService.buscarGIFs(value);
 
