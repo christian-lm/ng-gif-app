@@ -9,7 +9,7 @@ export class GifService {
 
   private apiKey: string = 'VBCOYcc5M8QTdyCWWBBBQobBCDPNVCfu'
   private _historial: string[] = [];
-  private servicioURL = `http://api.giphy.com/v1/gifs`;
+  private servicioURL = `https://api.giphy.com/v1/gifs`;
 
   public resultados: Gif[] = [];
 
