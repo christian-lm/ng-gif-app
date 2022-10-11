@@ -23,6 +23,9 @@ export class GifService {
     // Si existe historial, se obtiene
     this._historial = JSON.parse(localStorage.getItem('historial')!) || [];
 
+    // Si existen los resultados, se obtienen
+    this.resultados = JSON.parse(localStorage.getItem('resultados')!) || [];
+
   }
 
   /**
@@ -52,11 +55,14 @@ export class GifService {
       .http
       .get<SearchGIFResponse>(`http://api.giphy.com/v1/gifs/search?api_key=${this.apiKey}&q=${query}&limit=10`)
       .subscribe((response) => {
-        console.log(response.data);
+
+        // Obtenemos los resultados
         this.resultados = response.data;
+
+        // Guardamos en el localStorage
+        localStorage.setItem('resultados', JSON.stringify(this.resultados));
+
       })
-
-
   }
 
 }
