@@ -9,6 +9,9 @@ export class GifService {
   private apiKey: string = 'VBCOYcc5M8QTdyCWWBBBQobBCDPNVCfu'
   private _historial: string[] = [];
 
+  // TODO: Cambiar tipo ANY
+  public resultados: any[] = [];
+
   /**
    * Metodo GET del historial
    */
@@ -38,9 +41,10 @@ export class GifService {
       this._historial = this._historial.splice(0, 10);
     }
 
-    this.http.get('http://api.giphy.com/v1/gifs/search?api_key=VBCOYcc5M8QTdyCWWBBBQobBCDPNVCfu&q=iron man&limit=10')
-      .subscribe(response => {
-        console.log(response)
+    this.http.get(`http://api.giphy.com/v1/gifs/search?api_key=VBCOYcc5M8QTdyCWWBBBQobBCDPNVCfu&q=${query}&limit=10`)
+      .subscribe((response: any) => {
+        console.log(response.data);
+        this.resultados = response.data;
       })
 
 
